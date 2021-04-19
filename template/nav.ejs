@@ -1,0 +1,19 @@
+<!-- Navigation Partial Template -->
+<header class="masthead mb-auto">
+  <div class="inner">
+    <h3 class="masthead-brand">Snake Game</h3>
+    <% if (user.handle) { %>
+    <h3><%= user.handle %></h3>
+    <% } %>
+    <nav class="nav nav-masthead justify-content-center">
+      <a id="home" class="nav-link" href="/">Home</a>
+      <a id="login" class="nav-link" href="/login">Login</a>
+      <a id="signup" class="nav-link" href="/signup">Sign Up</a>
+      <a id="table" class="nav-link" href="/highScores">High Scores</a>
+
+      <% if (user.handle) { %>
+      <a id="game" class="nav-link" href="/game">Play</a>
+      <% } %>
+    </nav>
+  </div>
+</header>
