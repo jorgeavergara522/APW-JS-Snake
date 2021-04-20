@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 9734986a62de32cba7f063fe72e3965139460d91 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618763069 -0400	commit (initial): first commit
-9734986a62de32cba7f063fe72e3965139460d91 ba3294513023c59795cddc8fcd6ed8fe5240c7c9 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618763192 -0400	commit: update
-ba3294513023c59795cddc8fcd6ed8fe5240c7c9 0000000000000000000000000000000000000000 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618763213 -0400	Branch: renamed refs/heads/master to refs/heads/master
-ba3294513023c59795cddc8fcd6ed8fe5240c7c9 ba3294513023c59795cddc8fcd6ed8fe5240c7c9 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618763213 -0400	Branch: renamed refs/heads/master to refs/heads/master
-ba3294513023c59795cddc8fcd6ed8fe5240c7c9 215132acc6ce902978a82b51ca62e1c51e8d9ee8 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618770412 -0400	commit: add everything
-215132acc6ce902978a82b51ca62e1c51e8d9ee8 a0a55dbcc9f90986366d737e5cec1857fe5e36d2 Lawrence Nicastro <lawrence.nicastro1@gmail.com> 1618772850 -0400	pull origin master: Fast-forward
