@@ -6,3 +6,4 @@ A Snake Game project for an Advanced Programming Workshop class.
 - ***Created empty "Procfile" to match
 - Modules in Zip.
 - To run: Download Zip - Unzip node_modules in main directory with other folders
+- Followed a branch workflow for a while towards start of project - Switched workflow towards end of project (to eliminate excess branches) when we were all more familiar with Github.
