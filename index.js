@@ -36,12 +36,9 @@ app.get('/',function (req, res) {
     res.render('pages/home', {user: {}})
 });
 
-// Devon
+// Devon, Jorge
 
-app.get('/login',function (req, res, err) {
-  if (err){
-    res.redirect('pages/login');
-  }
+app.get('/login',function (req, res) {
   res.render('pages/login', {user: {}})
 });
 
@@ -49,10 +46,11 @@ app.get('/highscores',function (req, res) {
   res.render('pages/highscores', {user: {}})
 });
 
+// Jeff, Mike
+
 app.get('/signup',function (req, res) {
   res.render('pages/signup',{user: {}})
 });
-
 
 app.get('/game',function (req, res) {
   res.render('pages/game',{user: {}})
@@ -68,6 +66,26 @@ app.get('/logout', function (req, res)
 app.get('/save', function (req, res)
 {
   res.render('pages/highScores');
+});
+
+app.post('login', function (req, res)
+  {
+    const newUser = new User({
+      handle: req.body.handle,
+      email: req.body.email,
+      password: req.body.password,
+  });
+
+  req.login(user, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      passport.authenticate("local")(req,res, function(){
+        console.log(req.user);
+        res.render('pages/game');
+      });
+    }
+  });
 });
 
 app.listen(port, () => console.log(`app Started on port ${port}!`));
