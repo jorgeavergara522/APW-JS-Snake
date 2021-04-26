@@ -55,11 +55,16 @@ app.get('/game',function (req, res) {
   res.render('pages/game',{user: {}})
 });
 
-// Jeff, Michael
+// Group
 
 app.get('/logout', function (req, res)
 { req.logout();
   res.render('pages/home');
+});
+
+app.get('/save', function (req, res)
+{
+  res.render('pages/highScores');
 });
 
 app.listen(port, () => console.log(`app Started on port ${port}!`));
