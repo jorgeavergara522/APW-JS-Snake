@@ -39,6 +39,9 @@ app.get('/',function (req, res) {
 // Devon
 
 app.get('/login',function (req, res) {
+  if (err){
+    res.redirect('pages/login');
+  }
   res.render('pages/login', {user: {}})
 });
 
