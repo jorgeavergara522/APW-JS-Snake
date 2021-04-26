@@ -1,3 +1,5 @@
+// Jeff, Devon
+
 const Validator = require('validator');
 const validText = require('./valid-text');
 

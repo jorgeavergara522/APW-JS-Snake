@@ -1,3 +1,5 @@
+// Jorge
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
@@ -63,6 +65,8 @@ router.post("/loginUser", (req, res) => {
   //   return res.status(400).json(errors);
   // }
 
+  // Michael, Jeff, Devon
+
   const email = req.body.email;
   const password = req.body.password;
 
@@ -95,9 +99,6 @@ router.post("/loginUser", (req, res) => {
   });
   res.render('pages/home', {user: {handle: req.body.handle}});
 });
-
-
-
 
 
 router.post("/score", (req, res) => {

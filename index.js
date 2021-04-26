@@ -1,3 +1,5 @@
+// Jorge
+
 const express = require('express')
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
@@ -20,18 +22,9 @@ mongoose
 var path = require('path');
 const port = process.env.PORT || 5000;
 
-
-
-
-
-
+// Jeff
 
 app.use("/api/users", users);
-
-
-
-
-
 
 
 // view engine setup
@@ -44,7 +37,7 @@ app.get('/',function (req, res) {
     res.render('pages/home', {user: {}})
 });
 
-
+// Devon
 
 app.get('/login',function (req, res) {
   res.render('pages/login', {user: {}})
@@ -62,7 +55,6 @@ app.get('/signup',function (req, res) {
 app.get('/game',function (req, res) {
   res.render('pages/game',{user: {}})
 });
-
 
 
 app.listen(port, () => console.log(`app Started on port ${port}!`));

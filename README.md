@@ -6,3 +6,16 @@ A Snake Game project for an Advanced Programming Workshop class.
 - ***Created empty "Procfile" to match
 - Modules in Zip.
 - To run: Download Zip - Unzip node_modules in main directory with other folders
+
+Required modules:
+   "bcrypt"
+    "bcryptjs"
+    "body-parser"
+    "ejs": "
+    "express"
+    "jsonwebtoken":
+    "mongoose"
+    "nodemon"
+    "passport"
+    "passport-jwt"
+    "validator"
