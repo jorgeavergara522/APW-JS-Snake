@@ -68,7 +68,7 @@ app.get('/save', function (req, res)
   res.render('pages/highScores');
 });
 
-app.post('login', function (req, res)
+app.post('/login', function (req, res)
   {
     const newUser = new User({
       handle: req.body.handle,
