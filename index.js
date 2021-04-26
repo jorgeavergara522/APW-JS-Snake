@@ -76,7 +76,7 @@ app.post('/login', function (req, res)
       password: req.body.password,
   });
 
-  req.login(user, function(err){
+  req.login(newUser, function(err){
     if(err){
       console.log(err);
     } else {
