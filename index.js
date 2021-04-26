@@ -57,4 +57,9 @@ app.get('/game',function (req, res) {
 });
 
 
+app.get('/logout', function (req, res)
+{ req.logout();
+  res.render('pages/home');
+});
+
 app.listen(port, () => console.log(`app Started on port ${port}!`));
