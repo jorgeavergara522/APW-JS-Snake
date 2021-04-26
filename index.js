@@ -26,7 +26,6 @@ const port = process.env.PORT || 5000;
 
 app.use("/api/users", users);
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -56,6 +55,7 @@ app.get('/game',function (req, res) {
   res.render('pages/game',{user: {}})
 });
 
+// Jeff, Michael
 
 app.get('/logout', function (req, res)
 { req.logout();
