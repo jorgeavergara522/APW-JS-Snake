@@ -102,6 +102,7 @@
             xhr.send(JSON.stringify({
                 score: score
             }));
+            db.users.updateOne(score);
             window.alert("You lost!");
             return;
         }
