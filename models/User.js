@@ -1,4 +1,4 @@
-// Michael 
+// Michael, Jeff 
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
