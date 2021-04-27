@@ -68,24 +68,4 @@ app.get('/save', function (req, res)
   res.render('pages/highScores');
 });
 
-app.post('/login', function (req, res)
-  {
-    const newUser = new User({
-      handle: req.body.handle,
-      email: req.body.email,
-      password: req.body.password,
-  });
-
-  req.login(newUser, function(err){
-    if(err){
-      console.log(err);
-    } else {
-      passport.authenticate("local")(req,res, function(){
-        console.log(req.user);
-        res.render('pages/game');
-      });
-    }
-  });
-});
-
 app.listen(port, () => console.log(`app Started on port ${port}!`));
