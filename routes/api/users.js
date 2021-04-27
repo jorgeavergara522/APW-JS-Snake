@@ -72,12 +72,14 @@ router.post("/loginUser", (req, res) => {
 
   User.findOne({ email }).then((user) => {
     if (!user) {
+      console.log("error from login");
       errors.email = "This user does not exist";
       return res.status(400).json(errors);
     }
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
+        console.log("error from login_2");
         const payload = { id: user.id, handle: user.handle };
 
         jwt.sign(
@@ -92,6 +94,7 @@ router.post("/loginUser", (req, res) => {
           }
         );
       } else {
+        console.log("error from login_3");
         errors.password = "Incorrect password";
         return res.status(400).json(errors);
       }
