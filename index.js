@@ -68,4 +68,9 @@ app.get('/save', function (req, res)
   res.render('pages/highScores');
 });
 
+app.post('/save', function(req, res)
+{
+  res.render('pages/highScores');
+});
+
 app.listen(port, () => console.log(`app Started on port ${port}!`));
