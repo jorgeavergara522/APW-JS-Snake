@@ -71,6 +71,8 @@ router.post("/loginUser", (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email }).then((user) => {
+    console.log(email);
+    console.log(user);
     if (!user) {
       console.log("error from login");
       errors.email = "This user does not exist";
