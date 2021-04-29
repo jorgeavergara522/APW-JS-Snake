@@ -9,6 +9,7 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const passport = require("passport");
+const errors = require("errors");
 
 router.post("/registerUser", (req, res) => {
   // const { errors, isValid } = validateRegisterInput(req.body);
