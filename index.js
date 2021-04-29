@@ -60,17 +60,17 @@ app.get('/game',function (req, res) {
 
 app.get('/logout', function (req, res)
 { req.logout();
-  res.render('pages/home');
+  res.render('pages/home', {user: {}});
 });
 
 app.get('/save', function (req, res)
 {
-  res.render('pages/highScores');
+  res.render('pages/highScores', {user: {}});
 });
 
 app.post('/save', function(req, res)
 {
-  res.render('pages/highScores');
+  res.render('pages/highScores', {user: {}});
 });
 
 app.listen(port, () => console.log(`app Started on port ${port}!`));
