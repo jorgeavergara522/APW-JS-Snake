@@ -32,7 +32,6 @@ app.use(session({
   cookie  : { maxAge  : new Date(Date.now() + (60 * 1000 * 30)) }
 }))
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
