@@ -25,6 +25,11 @@ const port = process.env.PORT || 5000;
 // Jeff
 
 app.use("/api/users", users);
+app.use(express.session({
+  secret  : 'oa7wHOKBTr',
+  store   : new storage({ client : conn, cleanup: false }),
+  cookie  : { maxAge  : new Date(Date.now() + (60 * 1000 * 30)) }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
