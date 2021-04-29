@@ -16,6 +16,7 @@ Required modules:
     "passport"
     "passport-jwt"
     "validator"
+    "keys"
 
     
     - Followed a branch workflow for a while towards start of project - Switched workflow towards end of project (to eliminate excess branches) when we were all more familiar with Github.
