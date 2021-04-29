@@ -1,12 +1,13 @@
 <%- include('../template/head')-%>
 
 <body class="text-center">
+    <% console.log(new errors.Http401Error({ %>
+        <% message: "Expired Token", %>
+        <% explanation: "Your token has expired"}).toString()); %>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <%- include('../template/nav')-%>
         <main role="main" class="inner cover">
             <h1 class="cover-heading">Snake Game</h1>
-            <p class="lead">SAMPLE
-            </p>
         </main>
     </div>
 </body>
