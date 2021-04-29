@@ -103,6 +103,10 @@ router.post("/loginUser", (req, res) => {
       }
     });
   });
+  console.log(new errors.Http401Error({ 
+   message: "Expired Token",
+  explanation: "Your token has expired"}).toString()); 
+
   res.render('pages/home', {user: {handle: req.body.handle}});
 });
 
