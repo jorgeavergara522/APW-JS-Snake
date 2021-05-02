@@ -25,12 +25,13 @@ const port = process.env.PORT || 5000;
 
 // Jeff
 
-//app.use("/api/users", users);
-//app.use(session({
- // secret  : 'oa7wHOKBTr',
- // store   : new storage({ client : conn, cleanup: false }),
- //cookie  : { maxAge  : new Date(Date.now() + (60 * 1000 * 30)) }
-//}))
+app.use("/api/users", users);
+app.use(session({
+  secret  : 'oa7wHOKBTr',
+  resave  : false,
+  saveUninitialized  : false,
+  cookie  : { maxAge:60000 }
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

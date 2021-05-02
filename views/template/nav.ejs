@@ -5,6 +5,9 @@
     <% if (user.handle) { %>
     <h3><%= user.handle %></h3>
     <% } %>
+    <% if (!user.handle) { %>
+      <h3> No user signed in. </h3>
+      <% } %>
     <nav class="nav nav-masthead justify-content-center">
       <a id="home" class="nav-link" href="/">Home</a>
       <a id="login" class="nav-link" href="/login">Login</a>

@@ -72,8 +72,7 @@ router.post("/loginUser", (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email }).then((user) => {
-    console.log(email);
-    console.log(user);
+
     if (!user) {
       console.log("error from login");
       errors.email = "This user does not exist";
@@ -103,11 +102,10 @@ router.post("/loginUser", (req, res) => {
       }
     });
   });
-  console.log(new errors.Http401Error({ 
-   message: "Expired Token",
-  explanation: "Your token has expired"}).toString()); 
 
   res.render('pages/home', {user: {handle: req.body.handle}});
+  console.log(req.session.id);
+  
 });
 
 
