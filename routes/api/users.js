@@ -12,11 +12,11 @@ const passport = require("passport");
 const errors = require("errors");
 
 router.post("/registerUser", (req, res) => {
-  // const { errors, isValid } = validateRegisterInput(req.body);
-  // console.log('here', req.body)
-  // if (!isValid) {
-  //   return res.status(400).json(errors);
-  // }
+   const { errors, isValid } = validateRegisterInput(req.body);
+   console.log('here', req.body)
+   if (!isValid) {
+     return res.status(400).json(errors);
+   }
 
 
   User.findOne({ handle: req.body.handle }).then((user) => {
@@ -60,11 +60,11 @@ router.post("/registerUser", (req, res) => {
 });
 
 router.post("/loginUser", (req, res) => {
-  // const { errors, isValid } = validateLoginInput(req.body);
+   const { errors, isValid } = validateLoginInput(req.body);
 
-  // if (!isValid) {
-  //   return res.status(400).json(errors);
-  // }
+   if (!isValid) {
+     return res.status(400).json(errors);
+   }
 
   // Michael, Jeff, Devon
 
