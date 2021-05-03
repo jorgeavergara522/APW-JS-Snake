@@ -56,6 +56,7 @@ router.post("/registerUser", (req, res) => {
       });
     }
   });
+  console.log(req.body.handle, "this is my signup function");
   res.render('pages/home', {user: {handle: req.body.handle}});
 });
 
@@ -70,7 +71,7 @@ router.post("/loginUser", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-
+  let userID;
   User.findOne({ email }).then((user) => {
 
     if (!user) {
@@ -81,9 +82,11 @@ router.post("/loginUser", (req, res) => {
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        console.log("error from login_2");
+      console.log("passwords matched");
         const payload = { id: user.id, handle: user.handle };
-
+        console.log(user.handle);
+        userID=user.id;
+        console.log(user.id, "this is my user ID");
         jwt.sign(
           payload,
           keys.secretOrKey,
@@ -95,6 +98,7 @@ router.post("/loginUser", (req, res) => {
             });
           }
         );
+        console.log(user.handle);
       } else {
         console.log("error from login_3");
         errors.password = "Incorrect password";
@@ -102,16 +106,22 @@ router.post("/loginUser", (req, res) => {
       }
     });
   });
-
-  res.render('pages/home', {user: {handle: req.body.handle}});
-  console.log(req.session.id);
+  console.log(userID, "this is my login function");
+  res.render('pages/home', {user: {handle: req.body.handle, id: userID}});
+  
   
 });
 
 
-router.post("/score", (req, res) => {
+router.post("/score", async (req, res) => {
 
-  console.log('here', req.body)
+
+  await User.findOneAndUpdate({handle: req.body.user}, {highscore: req.body.score})
+ 
+ 
+
+
+ res.status(200)
 })
 
 module.exports = router;

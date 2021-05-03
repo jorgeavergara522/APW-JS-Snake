@@ -1,5 +1,7 @@
 <%- include('../template/head')-%>
 
+
+
   <body>
     <div class="container">
       <div class="col-sm-6 col-sm-offset-3">
@@ -15,31 +17,14 @@
             </tr>
           </thead>
           <tbody>
+            <% users.forEach(function(user,i){ %>
             <tr>
-              <th scope="row">1</th>
-              <%= user.score %>
-              <%= user.handle %>
+              <td scope="row"><%= i + 1 %></td>
+              <td scope="row"><%= user.handle %></td>
+              <td scope="row"><%= user.highscore %></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <%= user.score %>
-              <%= user.handle %>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <%= user.score %>
-              <%= user.handle %>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <%= user.score %>
-              <%= user.handle %>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <%= user.score %>
-              <%= user.handle %>
-            </tr>
+            <% }) %>
+
           </tbody>
         </table>
         <hr />

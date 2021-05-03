@@ -5,7 +5,10 @@
     <!-- ejs files were a group effort -->
 
     <div class="welcome">
-        <form action="/save" method="post">
+        <form action="/save" method="get">
+            <label score>          
+                  <input id='myscore' type='text' value="" />
+            </label>
             <button type="submit" ref={this.score} name="score">Save Score</button>
         </form>
 
@@ -94,16 +97,20 @@
     function main() {
 
         if (has_game_ended()) {
-            const score = document.getElementById('score').innerHTML
-            const baseUrl = `<%= process.env.userId %>` || "http://localhost:5000/api/users/score"
+            
+            console.log(score)
+            document.getElementById('myscore').value = score
+
+            const user = localStorage.getItem('user')
+            const baseUrl = "http://localhost:5000/api/users/score"
             var xhr = new XMLHttpRequest();
             xhr.open("POST", baseUrl, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({
-                score: score
-            }));
-            window.alert(`You lost! Your score was ${score}`);
-            return;
+             xhr.send(JSON.stringify({
+                score: score,
+                user: user
+            }))
+            return
         }
 
         changing_direction = false;

@@ -1,9 +1,12 @@
 <!-- Navigation Partial Template -->
 <header class="masthead mb-auto">
+
   <div class="inner">
     <h3 class="masthead-brand">Snake Game</h3>
     <% if (user.handle) { %>
-    <h3><%= user.handle %></h3>
+    
+    <% console.log('here') %>
+    <h3 id="handle"><%= user.handle %></h3>
     <% } %>
     <% if (!user.handle) { %>
       <h3> No user signed in. </h3>
@@ -15,8 +18,14 @@
       <a id="table" class="nav-link" href="/highScores">High Scores</a>
 
       <% if (user.handle) { %>
-      <a id="game" class="nav-link" href="/game">Play</a>
+      <a id="game" action="/api/users/sendHandle" method="post" class="nav-link" href="/game">Play</a>
       <% } %>
     </nav>
+    <script>
+      console.log('here')
+      const myuser = document.getElementById('handle')
+      if(myuser.innerHTML) localStorage.setItem('user', myuser.innerHTML)
+
+    </script>
   </div>
 </header>

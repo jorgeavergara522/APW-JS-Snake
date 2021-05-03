@@ -26,12 +26,12 @@ const port = process.env.PORT || 5000;
 // Jeff
 
 app.use("/api/users", users);
-app.use(session({
-  secret  : 'oa7wHOKBTr',
-  resave  : false,
-  saveUninitialized  : false,
-  cookie  : { maxAge:60000 }
-}))
+// app.use(session({
+//   secret  : 'oa7wHOKBTr',
+//   resave  : false,
+//   saveUninitialized  : false,
+//   cookie  : { maxAge:60000 }
+// }))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -70,14 +70,25 @@ app.get('/logout', function (req, res)
   res.render('pages/home', {user: {}});
 });
 
-app.get('/save', function (req, res)
+app.get('/save', async function (req, res)
 {
-  res.render('pages/highScores', {user: {}});
+  const players = await User.find({})
+
+ const data = players.map(player => {
+   let score = player.highscore || "0"
+
+   return {handle: player.handle, highscore: score }
+ })
+
+ const newdata = data.sort((a,b) => a.score + b.score)
+
+  res.render('pages/highScores', {users: newdata});
 });
 
-app.post('/save', function(req, res)
+app.post('/save', async function(req, res)
 {
-  res.render('pages/highScores', {user: {}});
+  
+  res.render('pages/highScores', {});
 });
 
 app.listen(port, () => console.log(`app Started on port ${port}!`));
