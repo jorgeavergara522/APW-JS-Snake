@@ -26,12 +26,12 @@ const port = process.env.PORT || 5000;
 // Jeff
 
 app.use("/api/users", users);
-// app.use(session({
-//   secret  : 'oa7wHOKBTr',
-//   resave  : false,
-//   saveUninitialized  : false,
-//   cookie  : { maxAge:60000 }
-// }))
+ //app.use(session({
+   //secret  : 'oa7wHOKBTr',
+   //resave  : false,
+   //saveUninitialized  : false,
+   //cookie  : { maxAge:60000 }
+  //}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,8 +49,18 @@ app.get('/login',function (req, res) {
   res.render('pages/login', {user: {}})
 });
 
-app.get('/highscores',function (req, res) {
-  res.render('pages/highscores', {user: {}})
+app.get('/highScores', async function (req, res) {
+  const players = await User.find({})
+
+ const data = players.map(player => {
+   let score = player.highscore || "0"
+
+   return {handle: player.handle, highscore: score }
+ })
+
+  const newdata = data.sort((a,b) => a.score + b.score)
+
+  res.render('pages/highScores', {users: newdata});
 });
 
 // Jeff, Mike
@@ -80,7 +90,7 @@ app.get('/save', async function (req, res)
    return {handle: player.handle, highscore: score }
  })
 
- const newdata = data.sort((a,b) => a.score + b.score)
+  const newdata = data.sort((a,b) => a.score + b.score)
 
   res.render('pages/highScores', {users: newdata});
 });

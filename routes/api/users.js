@@ -70,14 +70,14 @@ router.post("/loginUser", (req, res) => {
   // Michael, Jeff, Devon
 
   const email = req.body.email;
+  const handle = req.body.handle;
   const password = req.body.password;
   let userID;
-  User.findOne({ email }).then((user) => {
+  User.findOne({ email, handle }).then((user) => {
 
     if (!user) {
       console.log("error from login");
       errors.email = "This user does not exist";
-      return res.status(400).json(errors);
     }
 
     bcrypt.compare(password, user.password).then((isMatch) => {
@@ -101,25 +101,16 @@ router.post("/loginUser", (req, res) => {
         console.log(user.handle);
       } else {
         console.log("error from login_3");
-        errors.password = "Incorrect password";
-        return res.status(400).json(errors);
       }
     });
   });
   console.log(userID, "this is my login function");
   res.render('pages/home', {user: {handle: req.body.handle, id: userID}});
-  
-  
 });
-
 
 router.post("/score", async (req, res) => {
 
-
   await User.findOneAndUpdate({handle: req.body.user}, {highscore: req.body.score})
- 
- 
-
 
  res.status(200)
 })

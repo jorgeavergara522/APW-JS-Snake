@@ -18,6 +18,8 @@
       <a id="table" class="nav-link" href="/highScores">High Scores</a>
 
       <% if (user.handle) { %>
+        <a id="logout" class="nav-link" href="/logout">Logout</a>
+
       <a id="game" action="/api/users/sendHandle" method="post" class="nav-link" href="/game">Play</a>
       <% } %>
     </nav>
