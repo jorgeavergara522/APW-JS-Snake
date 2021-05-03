@@ -73,7 +73,7 @@ app.get('/game',function (req, res) {
   res.render('pages/game',{user: {}})
 });
 
-// Group
+// Jeff, Mike, Devon, Jorge 
 
 app.get('/logout', function (req, res)
 { req.logout();

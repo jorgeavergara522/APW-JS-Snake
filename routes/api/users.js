@@ -111,8 +111,8 @@ router.post("/loginUser", (req, res) => {
 router.post("/score", async (req, res) => {
 
   await User.findOneAndUpdate({handle: req.body.user}, {highscore: req.body.score})
-
- res.status(200)
+  
+  res.status(200)
 })
 
 module.exports = router;
