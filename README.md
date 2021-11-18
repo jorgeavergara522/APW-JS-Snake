@@ -3,7 +3,7 @@ A Snake Game project for an Advanced Programming Workshop class.
 
 - Modules in Zip.
 - To run: Download Zip - Unzip node_modules in main directory with other folders
-- NOTE: Running requires a MongoDB Cluster. You will need to add a file called 'keys_dev.js' under the config folder with your MongoDB Cluster information (mongoURI and secretOrKey) in a modules.export {}
+- NOTE: Running requires a MongoDB Cluster. You will need to add a file called 'keys_dev.js' under the configuration folder with your MongoDB Cluster information (mongoURI and secretOrKey) in a modules.export {}
 
 Required modules:
    "bcrypt"
